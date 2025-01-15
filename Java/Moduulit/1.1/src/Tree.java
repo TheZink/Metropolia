@@ -1,4 +1,6 @@
-public class Task2 {
+// Task 2
+
+public class Tree {
     public static void main(String[] args) {
 
         // Määritetään puun korkeus sekä merkkijonon aloitusmäärä
