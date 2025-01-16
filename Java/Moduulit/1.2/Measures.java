@@ -11,15 +11,20 @@ public class Measures {
 
         // Kysytään käyttäjältä syötettä
         System.out.println("Syötä grammat: ");
-        double gramm = scanner.nextDouble();
+        int gramm = scanner.nextInt();
 
         // Lasketaan, montako esinettä saadaan laskettua
-        double bread_amount = gramm / bread;
-        double nail_amount = (gramm - bread_amount) / nail;
-        double bullet_amount = (gramm - bread_amount - nail_amount) / bullet;
+        int bread_amount = (int) Math.floor(gramm / bread);
+        double remaining_bread = gramm % bread;
 
-        System.out.printf("%d grammaa on %d leiviskää, %d naulaa ja %2f luotia", bread_amount, nail_amount,
-                bullet_amount);
+        int nail_amount = (int) Math.floor(remaining_bread / nail);
+        double remaining_nail = remaining_bread % nail;
+
+        double bullet_amount = remaining_nail / bullet;
+
+        System.out.printf("%d grammaa on %d leiviskää, %d naulaa ja %.2f luotia", gramm, bread_amount, nail_amount, bullet_amount);
+
+        scanner.close();
 
     }
 
