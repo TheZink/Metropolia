@@ -34,6 +34,7 @@ class ServicePoint_2 {
         }
         System.out.println("Palvelit kaikki asiakkaita");
 
+        // Lasketaan keskimääräinen palveluaika
         for (long time : service_time) {
             average_time = average_time + time;
         }
