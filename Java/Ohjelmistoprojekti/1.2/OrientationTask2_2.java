@@ -4,10 +4,12 @@ import java.util.PriorityQueue;
 class Event implements Comparable<Event> {
     private long event_time;
     private String event_name;
+    private EventType event_type;
 
-    public Event(long event_time, String event_name) {
+    public Event(long event_time, String event_name, EventType event_type) {
         this.event_time = event_time;
         this.event_name = event_name;
+        this.event_type = event_type;
     }
 
     // Palauttaa aikaleiman
@@ -27,11 +29,12 @@ class Event implements Comparable<Event> {
 
     // Muutetaan listan tulostukset luettavaan muotoon. Muuten ne tulostuvat muodossa 'Event@36baf30c'
     public String toString() {
-        return event_name +" "+ event_time;
+        return event_name +" (" + event_type + ") "+ event_time;
 
     }
-
+    
 }
+
 
 class EventList {
     private PriorityQueue<Event> event_que;
@@ -65,15 +68,15 @@ public class OrientationTask2_2 {
     public static void main(String[] args) {
 
         // Luodaan aikaleima
-        long timestamp = System.currentTimeMillis() + 1000;
+        long timestamp = System.currentTimeMillis();
         
         // Luodaan kutsu
         EventList eventList = new EventList();
 
         // Luodaan tapahtumat
-        eventList.eventCreate(new Event(timestamp -1500,"Phase A"));
-        eventList.eventCreate(new Event(timestamp -2000, "Phase B"));
-        eventList.eventCreate(new Event(timestamp -1000, "Phase C"));
+        eventList.eventCreate(new Event(timestamp -1500,"Phase A", EventType.ARRIVAL));
+        eventList.eventCreate(new Event(timestamp -2000, "Phase B", EventType.ARRIVAL));
+        eventList.eventCreate(new Event(timestamp -1000, "Phase C", EventType.EXIT));
 
         System.out.println("Listalla on seuraavat tapahtumat:" );;
         eventList.eventPrint();
