@@ -11,12 +11,12 @@ class Event implements Comparable<Event> {
     }
 
     // Palauttaa aikaleiman
-    public long EventTime() {
+    public long eventTime() {
         return event_time;
     }
 
     // Palauttaa tapahtuman nimen
-    public String EventName() {
+    public String eventName() {
         return event_name;
     }
 
@@ -35,13 +35,14 @@ class Event implements Comparable<Event> {
 
 class EventList {
     private PriorityQueue<Event> event_que;
+    // private long event_time = 0;
 
     public EventList() {
         event_que = new PriorityQueue<>();
     }
 
     // Tulostaa tapahtumat listalta
-    public void EventPrint() {
+    public void eventPrint() {
         ArrayList<Event> event_array = new ArrayList<>(event_que);
         for (Event events : event_array) {
             System.out.println(events);
@@ -49,12 +50,12 @@ class EventList {
     }
     
     // Poistaa tapahtumat listalta
-    public Event EventRemove() {
+    public Event eventRemove() {
         return event_que.poll();
     }
 
     // Lisää tapahtumat listaan
-    public void EventCreate(Event event) {
+    public void eventCreate(Event event) {
         event_que.add(event);
     }
 }
@@ -70,14 +71,14 @@ public class OrientationTask2_2 {
         EventList eventList = new EventList();
 
         // Luodaan tapahtumat
-        eventList.EventCreate(new Event(timestamp -1500,"Phase A"));
-        eventList.EventCreate(new Event(timestamp -2000, "Phase B"));
-        eventList.EventCreate(new Event(timestamp -1000, "Phase C"));
+        eventList.eventCreate(new Event(timestamp -1500,"Phase A"));
+        eventList.eventCreate(new Event(timestamp -2000, "Phase B"));
+        eventList.eventCreate(new Event(timestamp -1000, "Phase C"));
 
         System.out.println("Listalla on seuraavat tapahtumat:" );;
-        eventList.EventPrint();
+        eventList.eventPrint();
 
-        System.out.println("Käsittelemme tapahtumaa: " + eventList.EventRemove());
+        System.out.println("Käsittelemme tapahtumaa: " + eventList.eventRemove());
 
 
         
