@@ -3,20 +3,41 @@ public class CoffeeMaker {
     private String coffeeType;
     private double amount;
 
+    // Konstruktori
     public CoffeeMaker() {
         powerStatus = false;
+        coffeeType = "";
         amount = 0;
     }
 
-    void coffeeMakerOnOf() {
+    // Vaihdetaan keittimen tilaa
+    public boolean coffeeMakerOnOf() {
         if (!powerStatus) {
             powerStatus = true;
         } else {
             powerStatus = false;
         }
+        return powerStatus;
     }
 
-    void selectAmount(double ml) {
+    // Määritetään määrä
+    double selectAmount(double ml) {
         amount = ml;
+        return amount;
+    }
+
+    // Valitaan tyyppi
+    void selectCoffee(String type) {
+        coffeeType = type;
+    }
+
+    // Palautetaan kahvin tyyppi
+    String getCoffee() {
+        return coffeeType;
+    }
+
+    // Palautetaan määrä
+    double getAmmount() {
+        return amount;
     }
 }

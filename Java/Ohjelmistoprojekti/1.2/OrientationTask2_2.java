@@ -27,14 +27,14 @@ class Event implements Comparable<Event> {
         return Long.compare(this.event_time, other.event_time);
     }
 
-    // Muutetaan listan tulostukset luettavaan muotoon. Muuten ne tulostuvat muodossa 'Event@36baf30c'
+    // Muutetaan listan tulostukset luettavaan muotoon. Muuten ne tulostuvat
+    // muodossa 'Event@36baf30c'
     public String toString() {
-        return event_name +" (" + event_type + ") "+ event_time;
+        return event_name + " (" + event_type + ") " + event_time;
 
     }
-    
-}
 
+}
 
 class EventList {
     private PriorityQueue<Event> event_que;
@@ -51,7 +51,7 @@ class EventList {
             System.out.println(events);
         }
     }
-    
+
     // Poistaa tapahtumat listalta
     public Event eventRemove() {
         return event_que.poll();
@@ -69,21 +69,20 @@ public class OrientationTask2_2 {
 
         // Luodaan aikaleima
         long timestamp = System.currentTimeMillis();
-        
+
         // Luodaan kutsu
         EventList eventList = new EventList();
 
         // Luodaan tapahtumat
-        eventList.eventCreate(new Event(timestamp -1500,"Phase A", EventType.ARRIVAL));
-        eventList.eventCreate(new Event(timestamp -2000, "Phase B", EventType.ARRIVAL));
-        eventList.eventCreate(new Event(timestamp -1000, "Phase C", EventType.EXIT));
+        eventList.eventCreate(new Event(timestamp - 1500, "Phase A", EventType.ARRIVAL));
+        eventList.eventCreate(new Event(timestamp - 2000, "Phase B", EventType.ARRIVAL));
+        eventList.eventCreate(new Event(timestamp - 1000, "Phase C", EventType.EXIT));
 
-        System.out.println("Listalla on seuraavat tapahtumat:" );;
+        System.out.println("Listalla on seuraavat tapahtumat:");
+        ;
         eventList.eventPrint();
 
         System.out.println("Käsittelemme tapahtumaa: " + eventList.eventRemove());
 
-
-        
     }
 }
