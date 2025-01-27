@@ -1,14 +1,20 @@
 public class Car {
     private double speed;
-    private double speedTop;
+    private double topSpeed;
+    private double cruise_min;
+    private double cruise_max;
+    private boolean cruise_status;
     private double gasolineLevel;
     private double gasolineCapacity;
     private String typeName;
 
     public Car(String typeName) {
         speed = 0;
+        cruise_min = 0;
+        cruise_max = 0;
         gasolineLevel = 0;
         gasolineCapacity = 100;
+        cruise_status = false;
         this.typeName = typeName;
 
     }
@@ -16,8 +22,10 @@ public class Car {
     public void accelerate() {
         if (gasolineLevel > 0) {
             speed += 10;
-            if (speed > speedTop) {
-                speedTop = speed;
+            gasolineLevel -= 5;
+
+            if (speed > topSpeed) {
+                topSpeed = speed;
             }
         } else {
             speed = 0;
@@ -48,8 +56,41 @@ public class Car {
         return gasolineLevel;
     }
 
-    // Palautetaan huippunopeus
+   // Cruise control
+
     double getTopSpeed() {
-        return speedTop;
+        return topSpeed;
+    }
+
+    void turnOn(boolean value) {
+        cruise_status = value;
+    }
+
+    void setSpeed(int set) {
+        cruise_max = set;
+    }
+
+    double getMinSpeed() {
+        return cruise_min;
+    }
+
+    double getMaxSpeed() {
+        return cruise_max;
+    }
+
+    boolean cruiseControlStatus() {
+        return cruise_status;
+    }
+
+    void regulateSpeed(Car car) {
+        // Verrataan "speed" ja "cruise_max" arvot
+        if (speed < cruise_max && gasolineLevel > 0) {
+            accelerate();
+        }
+        // Tarkastetaan ylittääkä "speed"-arvo "cruise_max"-arvon
+        else if (speed > cruise_max && gasolineLevel > 0) {
+            car.decelerate(5);
+            System.out.println("Varoitus! Ajoimme ylinopeutta");
+        }
     }
 }
