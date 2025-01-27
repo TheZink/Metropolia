@@ -1,6 +1,5 @@
-import java.nio.channels.Pipe.SourceChannel;
 
-public class main {
+public class Test {
     public static void main(String[] args) {
         Clock clock1 = Clock.getInstance();
         Clock clock2 = Clock.getInstance();
