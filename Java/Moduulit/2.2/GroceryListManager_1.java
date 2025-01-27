@@ -26,7 +26,7 @@ class GroceryListManager {
 
     // Tulostetaan lista
     void displayList() {
-        for (String item: groceryList) {
+        for (String item : groceryList) {
             System.out.println(item);
         }
     }

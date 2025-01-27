@@ -1,12 +1,14 @@
 public class ManagerTest {
     public static void main(String[] args) {
 
-        GroceryListManager listmanager = new GroceryListManager();
+        // GroceryListManager_2 testi
+        
+        GroceryListManager_2 listmanager = new GroceryListManager_2();
 
         // Lisätään tuotteita
-        listmanager.addItem("Omena");
-        listmanager.addItem("Omena");
-        listmanager.addItem("Maito");
+        listmanager.addItem("Omena", 3);
+        listmanager.addItem("Omena", 3);
+        listmanager.addItem("Maito", 5);
 
         // Etsitään tuote listasta
         System.out.println("Totuus on " + listmanager.checkItem("Omena"));
@@ -19,6 +21,10 @@ public class ManagerTest {
 
         // Tulostetaan päivitetty lista
         listmanager.displayList();
+
+        System.out.println("Ostoslistan kokonaishinta on: " + listmanager.calculateCost());
+
+        // GroceryListManager_1 testi
     }
 
 }
