@@ -5,7 +5,7 @@ public class AgeDistribution {
         final int iteration_times = 1000;
         final int maxage = 22;
 
-        ArrayList<ArrayList<Integer>> ageCounter = new ArrayList();
+        ArrayList<ArrayList<Integer>> ageCounter = new ArrayList<>();
 
         int agedistribution[][] = {
             {20,18},    // 20%
