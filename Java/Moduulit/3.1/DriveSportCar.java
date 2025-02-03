@@ -3,7 +3,7 @@ class SportsCar extends Car1 {
         super(typeName, accelRate, consRate, gasLevel);
     }
 
-    void driveCar(){
+    void driveCar() {
         fillTank(200);
         while (getGasolineLevel() > 0) {
             accelerate();
