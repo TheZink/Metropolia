@@ -1,4 +1,5 @@
 // Koodi otettu materiaaleista
+package coordinates;
 
 public class Main {
     public static double sqrt(double a) {
