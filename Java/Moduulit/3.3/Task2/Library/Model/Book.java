@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Book { 
     protected String title;
@@ -6,11 +6,11 @@ public class Book {
     protected String isbn;
     protected boolean reserved;
 
-    public Book(String title, String author, String isbn, boolean reserved) {
+    public Book(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-        this.reserved = reserved;
+        this.reserved = false;
     }
 
     public void setTitle(String title) {

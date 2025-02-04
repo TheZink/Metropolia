@@ -1,22 +1,21 @@
-package Model;
+package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryMember {
     private String name;
-    private int memberId;
-    private List<Book> borrowedBooks = new List<>();
+    private int memberId;                                                              
+    private List<Book> borrowedBooks = new ArrayList<>();    // Instanssikohtainen lista
+    private static int instanceCounter = 1;                  // Instanssin luontikerta
 
-    public LibraryMember(String name, int memberId) {
+    public LibraryMember(String name) {
         this.name = name;
-        this.memberId = memberId;
+        this.memberId = instanceCounter++;                   // Luodaan käyttäjälle uniikki id
     }
 
     public void setName(String name) { 
-        this.name = name; 
-    }
-    public void setMemberId(int memberId){ 
-        this.memberId = memberId; 
+        this.name = name;
     }
 
     public String getName(){ 
@@ -27,24 +26,37 @@ public class LibraryMember {
         return memberId; 
     }
 
-    // Tarkastetaan käyttäjän lainauslistaa. 
-    public void borrowBook(int memberId, Book book) { 
-        if (!borrowedBooks.contains(book)){ 
-            borrowedBooks.add(book);                                            
-            System.out.println(name + " lainasi kirjan " + book.getTitle());
-            return;
-        } else {
-            System.out.println(name + " on jo lainannut kirjan " + book.getTitle());
-        }
+    public List<Book> getList(){
+        return borrowedBooks;
     }
 
-    public void returnBook(int memberId, Book book) {        
+    public boolean borrowBook(Book book) { 
+        if (!borrowedBooks.contains(book)){               
+            borrowedBooks.add(book);
+            book.setReserved(true);    // Muutetaan kirjan boolean arvo                                            
+            return true;                        // Palautetaan true, kun kirja on lainattu käyttäjälle
+        }
+        return false;                           // Palautetaan false, mikäli kirja on jo lainattu käyttäjälle
+    }
+
+    public boolean returnBook(Book book) {        
         if (borrowedBooks.contains(book)){
-            borrowedBooks.remove(book);
-            System.out.println(name + " palautti kirjan " + book.getTitle());
-            return;
+            borrowedBooks.remove(book);         
+            book.setReserved(false);   // Muutetaan kirjan boolean arvo                                          
+            return true;                        // Palautetaan true, jos poisto onnistui
+        }
+        return false;                           // Palautetaan false, jos kirjaa ei ole lainattu
+    }
+
+    // Lainauslistan testausta
+    public void printBorrowedBooks(){
+        System.out.println(name + " lainausdata:");
+        if (!borrowedBooks.isEmpty()) {
+            for (Book item: borrowedBooks) {
+                System.out.println(item.getTitle());
+            }
         } else {
-            System.out.println("Palautettavaa " + book.getTitle() + " kirjaa ei löytynyt lainausjärjestelmästä");
+            System.out.println("Ei ole kirjoja lainassa");
         }
     }
 }
