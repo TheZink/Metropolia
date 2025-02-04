@@ -1,35 +1,34 @@
 public class BankAccount {
-    private static int accountCounter = 1;              // Seurataan luontimäärää
-    private static int accountTotal;                    // Tilien lukumäärä
-    private int accountId;                              // Uniikki Id
-    protected int accountBalance;                       // Tilin saldo
+    private static int accountCounter = 1;      // Vapaana oleva uniikki Id
+    private static int accountTotal;            // Instanssin luontikerta
+    private int accountId;                      // Uniikki Id
+    protected int accountBalance;               // Tilin saldo
 
-    public BankAccount(int accountBalance){ 
-        accountId = accountCounter++;                   // Jokainen tili saa oman uniikin ID ja kasvatetaan luontimäärää
-        accountTotal++;                                 // Kasvatetaan tilien lukumäärä
+    public BankAccount(int accountBalance) {
+        accountId = accountCounter++;           // Jokainen tili saa oman uniikin ID
+        accountTotal++;                         // Kasvatetaan instanssin luontikerta
         this.accountBalance = accountBalance;
     }
 
-    
-    int deposit(int amount) {           // Kasvattaa tilin saldoa
+    int deposit(int amount) {                   // Kasvattaa tilin saldoa
         accountBalance += amount;
         return accountBalance;
-    };
+    }
 
-    int withdraw(int amount) {          // Pienetää tilin saldoa
+    int withdraw(int amount) {                  // Pienetää tilin saldoa
         accountBalance -= amount;
         return accountBalance;
-    };
+    }
 
-    int getAccountNumber() {            // Palautetaan tilin Id
+    int getAccountNumber() {                     // Palautetaan tilin Id
         return accountId;
     }
 
-    int getBalance() {                  // Palauttaa tilin saldon
+    int getBalance() {                          // Palauttaa tilin saldon
         return accountBalance;
     }
-    
-    static int getTotalAccounts() {     // Palauttaa tilien lukumäärän
+
+    static int getTotalAccounts() {             // Palauttaa tilien lukumäärän
         return accountTotal;
     }
 

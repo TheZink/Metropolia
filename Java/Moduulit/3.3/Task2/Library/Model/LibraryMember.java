@@ -1,11 +1,12 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryMember {
     private String name;
     private int memberId;
-    private List<Book> borrowedBooks = new List<>();
+    private List<Book> borrowedBooks = new ArrayList<>();
 
     public LibraryMember(String name, int memberId) {
         this.name = name;

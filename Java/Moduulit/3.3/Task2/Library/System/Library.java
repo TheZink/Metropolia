@@ -1,9 +1,9 @@
-package system;
+package System;
 
 import java.util.List;
 
-import model.Book;
-import model.LibraryMember;
+import Model.Book;
+import Model.LibraryMember;
 
 public class Library {
     List<Book> books;
