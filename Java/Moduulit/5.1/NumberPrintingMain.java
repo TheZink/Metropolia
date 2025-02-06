@@ -41,8 +41,8 @@ class NumberPrinting extends Thread {
 
 public class NumberPrintingMain {
     public static void main(String[] args) {
-        Thread evenThread = new Thread(new NumberPrinting(1,20,"even"));
-        Thread oddThread = new Thread(new NumberPrinting(1, 20, "odd"));
+        Thread evenThread = new Thread(new NumberPrinting(1,100,"even"));
+        Thread oddThread = new Thread(new NumberPrinting(1, 100, "odd"));
 
         try {
             oddThread.start();                  // Käynnistetään oddThread
