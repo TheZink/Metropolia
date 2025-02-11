@@ -1,0 +1,1 @@
+![Palvelupiste](Palvelupiste.png)
