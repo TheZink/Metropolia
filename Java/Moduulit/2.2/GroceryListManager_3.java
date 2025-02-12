@@ -6,7 +6,7 @@ public class GroceryListManager_3 {
     public GroceryListManager_3() {}
 
     // Iteroidaan listaa ja tarkastetaan, onko tuote listalla. Jos epätosi, tuote lisätään listaan.
-    void addItem(String name, double price, String category) {
+    void addItem(String name, double price, String category, double quantity) {
     
         for (GroceryItem item: groceryList) {             
             if (item.getName().equals(name)) { 
@@ -14,7 +14,7 @@ public class GroceryListManager_3 {
                 return;
             }
         }
-        groceryList.add(new GroceryItem(name, price, category));
+        groceryList.add(new GroceryItem(name, price, category, quantity));
         System.out.println(name + " lisätty listaan.");
     }
 

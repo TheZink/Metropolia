@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-class GroceryListManager {
+class GroceryListManager_1 {
     private ArrayList<String> groceryList = new ArrayList<String>();
 
-    public GroceryListManager() {
+    public GroceryListManager_1() {
     }
 
     // Lisätään esine listaan
