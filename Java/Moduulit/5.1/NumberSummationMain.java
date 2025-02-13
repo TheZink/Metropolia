@@ -27,8 +27,7 @@ class NumberSummation implements Runnable {
             System.out.println("Ohjelma kohtasi virheen: " + e);
         }
     }
-        
-     
+           
     int getTotal() {
         return totalAmount;
     }
@@ -57,7 +56,7 @@ public class NumberSummationMain {
                 List<Integer> numbers = numberList.subList(start, end);                 // Luodaan lista luvuista, jotka säie käsittelee
 
                 Thread thread = new Thread(new NumberSummation(start, end, numbers));
-                threadsList.add(thread);
+                threadsList.add(thread);                                                // Lisätään säie listaan
             }
         } catch (Exception e) {
             System.out.println("Ohjelma kohtasi virheen: " + e);
