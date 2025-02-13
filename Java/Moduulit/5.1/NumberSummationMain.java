@@ -36,14 +36,14 @@ class NumberSummation implements Runnable {
 public class NumberSummationMain {
     public static void main(String[] args) {
         int core = Runtime.getRuntime().availableProcessors();                          // Määritetään saatavilla olevien ytimien määrä
-        int amount = 10000000;                                                          // Satunnaislukujen määrä
+        int amount = 100000000;                                                          // Satunnaislukujen määrä
         ArrayList<Integer> numberList = new ArrayList<Integer>();
         ArrayList<Thread> threadsList = new ArrayList<Thread>();
 
         Random random = new Random();                                               
                 
         for (int i = 1; i <= amount; i++) {                                             // Luodaan satunnaislukuja  
-            numberList.add(random.nextInt(1000) + 1);           
+            numberList.add(random.nextInt(10000) + 1);           
         }
         
         int perThreads = numberList.size() / core;                                      // Yhden säikeen käsittelemien lukujen määrä                                       
