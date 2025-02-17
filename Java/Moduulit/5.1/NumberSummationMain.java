@@ -35,7 +35,7 @@ class NumberSummation implements Runnable {
 
 public class NumberSummationMain {
     public static void main(String[] args) {
-        int core = Runtime.getRuntime().availableProcessors();                          // Määritetään saatavilla olevien ytimien määrä
+        int core = Runtime.getRuntime().availableProcessors();                           // Määritetään saatavilla olevien ytimien määrä
         int amount = 100000000;                                                          // Satunnaislukujen määrä
         ArrayList<Integer> numberList = new ArrayList<Integer>();
         ArrayList<Thread> threadsList = new ArrayList<Thread>();
