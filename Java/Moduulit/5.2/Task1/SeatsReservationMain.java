@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 class SeatsReservation implements Runnable{
-    private static int seats = 20;
+    private static int seats = 5;
     private int amount;
     
     public SeatsReservation(int amount) {
@@ -13,7 +13,7 @@ class SeatsReservation implements Runnable{
         synchronized(SeatsReservation.class) {      // Lukitaan luokka, jotta vain yksi säie voi suorittaa koodia kerrallaan
             if (seats >= amount) {
                 seats = seats - amount;
-                System.out.println("Asiakas " + Thread.currentThread().getId() + " varasi " + amount + " paikkaa. Jäljellä olevia paikkoja: " + seats);            
+                System.out.println("Asiakas " + Thread.currentThread().getId() + " varasi " + amount + " paikkaa. Jäljellä olevia paikkoja: " + seats);
             } else {
                 System.out.println("Asiakas " + Thread.currentThread().getId() + " ei voinut varata " + amount + " paikkaa.");
             }
