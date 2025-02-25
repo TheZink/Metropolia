@@ -6,7 +6,6 @@ public class Dictionary {
     private HashMap<String, String> dictionary = new HashMap<>();
 
     public String getMeaning(String word) {
-        System.out.println("Dictionary getMeaning: " + word);
         if (dictionary.containsKey(word)) {
             return dictionary.get(word);
         } else {
@@ -15,8 +14,6 @@ public class Dictionary {
     }
 
     public void addWord(String word, String meaning) {
-        System.out.println("Dictionary addWord: " + word + " " + meaning);
-
         dictionary.put(word, meaning);
     }
 
