@@ -104,6 +104,7 @@ public class CurrGUI extends Application {
         });
 
         Scene scene = new Scene(layout, 325, 100);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
 
