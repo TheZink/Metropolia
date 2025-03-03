@@ -12,10 +12,10 @@ public class Notebook {
     }
     
     public String getNote(String title) {
-        if (!notes.containsKey(title)) {
-            return "Muistiinpanoa ei löytynyt";
-        } else {
+        if (notes.containsKey(title)) {
             return notes.get(title);
+        } else {
+            return null;
         }
     }
 }

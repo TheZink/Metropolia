@@ -34,15 +34,16 @@ public class Note {
     // Method to save content to notebook
     public void saveContent() {
         notebook.setNote(title, content);
-        System.out.println("Content saved to notebook: " + title);
+        System.out.println("Note: Title is saved: " + title);
+        System.out.println("Note: Content is saved: " + content);
     }
 
     // Method to retrieve content from notebook
-    public void getContent(Notebook notebook) {
+    public void retrieveContent() {
         String retrievedContent = notebook.getNote(title);
-        title = retrievedContent;
-        System.out.println(title + " content retrieved from notebook");
-
+        this.content = retrievedContent;
+        System.out.println("Note: Title is retrieved: " + title);
+        System.out.println("Note: Content is retrieved: " + content);
     }
 
 }

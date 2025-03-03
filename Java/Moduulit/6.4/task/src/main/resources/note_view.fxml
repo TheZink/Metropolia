@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="278.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="278.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NoteController">
    <top>
       <Label text="Note application" BorderPane.alignment="CENTER">
          <font>
@@ -33,20 +33,21 @@
                 <RowConstraints maxHeight="60.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextArea fx:id="noteText" prefHeight="166.0" prefWidth="693.0" text="Kirjoita muistiinpano tähän...&#10;&#10;" GridPane.columnIndex="1" />
+                  <TextArea fx:id="contentField" prefHeight="166.0" prefWidth="693.0" text="Kirjoita muistiinpano tähän...&#10;&#10;" GridPane.columnIndex="1" />
                   <VBox prefHeight="166.0" prefWidth="323.0">
                      <children>
-                        <TextField fx:id="noteTopic" text="Aihe" />
+                        <TextField fx:id="titleField" text="Aihe" />
+                        <Label fx:id="statusLabel" prefHeight="17.0" prefWidth="699.0" text="Standby" />
                      </children>
                   </VBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Button fx:id="noteClear" mnemonicParsing="false" text="Tyhjennä" />
-                        <Button fx:id="noteFind" mnemonicParsing="false" text="Etsi" />
-                        <Button fx:id="noteAdd" alignment="CENTER" mnemonicParsing="false" text="Lisää" />
+                        <Button fx:id="clearButton" mnemonicParsing="false" text="Tyhjennä" />
+                        <Button fx:id="getButton" mnemonicParsing="false" text="Etsi" />
+                        <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" text="Lisää" />
                      </children>
                   </HBox>
-                  <Label fx:id="statusLabel" prefHeight="17.0" prefWidth="699.0" text="Standby" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="printLabel" prefHeight="17.0" prefWidth="700.0" text="Ready" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
