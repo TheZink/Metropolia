@@ -1,0 +1,19 @@
+* { 
+    -fx-font-family: 'Sans-serif';
+}
+
+.label {
+    -fx-font-family: 'Sans-serif';
+}
+
+.text-field {
+    -fx-font-family: 'Sans-serif';
+} 
+
+.combo-box-base {
+    -fx-font-family: 'Sans-serif';
+} 
+
+.button {
+    -fx-font-family: 'Sans-serif';
+}
