@@ -4,10 +4,8 @@ import javafx.stage.*;
 import javafx.application.*;
 import javafx.fxml.*;
 import javafx.scene.*;
-import controller.*;
 
 public class CurrGUI extends Application {
-    private CurrController controller;
     
     @Override
     public void start(Stage primaryStage) throws Exception {

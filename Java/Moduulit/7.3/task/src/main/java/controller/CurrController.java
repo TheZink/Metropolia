@@ -1,7 +1,5 @@
 package controller;
 
-import dao.*;
-import entity.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.Parent;
@@ -9,7 +7,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 
-import java.util.*;
 import application.*;
 
 public class CurrController {
