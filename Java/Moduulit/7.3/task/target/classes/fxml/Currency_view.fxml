@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CurrController">
    <top>
       <Label text="Currency Converter 0.3" BorderPane.alignment="CENTER">
@@ -75,14 +74,19 @@
                         <Insets right="3.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="refreshButton" mnemonicParsing="false" text="Update">
+                     <HBox.margin>
+                        <Insets right="3.0" />
+                     </HBox.margin>
+                  </Button>
                   <Button fx:id="addButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Add" />
                </children>
             </HBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="selLabel" text="Selected currency" />
-                  <Label fx:id="countryLabel" text="Country" />
-                  <Label fx:id="nameLabel" text="Name" />
+                  <Label fx:id="selText" />
+                  <Label fx:id="nameText" />
+                  <Label fx:id="ratesText" />
                </children>
             </VBox>
          </children>

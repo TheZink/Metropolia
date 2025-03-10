@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.event.*;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import application.ConverterApp;
 import javafx.stage.Stage;
 
@@ -10,17 +11,17 @@ public class AddCurrController {
     private ConverterApp converter;
 
     @FXML
-    private TextField CurrField;
+    private TextField currField;
     @FXML
-    private TextField CurrCodeField;
+    private TextField countryField;
     @FXML
-    private TextField CurrRateField;
+    private TextField ratesField;
     @FXML
     private Button saveButton;
     @FXML
     private Button clearButton;
     @FXML
-    private Label statusLabel;
+    private Text statusText;
 
     @FXML
     private void initialize() {
@@ -31,14 +32,14 @@ public class AddCurrController {
             public void handle(ActionEvent event){
                 System.out.println("Save button pressed");
 
-                String name = CurrField.getText();
-                String code = CurrCodeField.getText();
-                double rate = Double.parseDouble(CurrRateField.getText().replace(",", "."));
+                String code = currField.getText().toUpperCase();
+                String name = countryField.getText();
+                double rate = Double.parseDouble(ratesField.getText().replace(",", "."));
 
                 // Tarkistetaan, että kentät eivät ole tyhjiä
-                if(!CurrRateField.getText().isEmpty() && !CurrCodeField.getText().isEmpty() && !CurrField.getText().isEmpty()) {
+                if(!ratesField.getText().isEmpty() && !countryField.getText().isEmpty() && !currField.getText().isEmpty()) {
                     
-                    converter.addCurrency(name, code, rate);
+                    converter.addCurrency(code, name, rate);
                     
                     // Suljetaan ikkuna
                     Stage stage = (Stage) saveButton.getScene().getWindow();
@@ -46,7 +47,7 @@ public class AddCurrController {
                 } 
 
                 else {
-                    statusLabel.setText("Please fill all fields");
+                    statusText.setText("Please fill all fields");
                 }
             }
         });
@@ -54,9 +55,9 @@ public class AddCurrController {
         clearButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event){
                 System.out.println("Clear button pressed");
-                CurrField.clear();
-                CurrCodeField.clear();
-                CurrRateField.clear();
+                currField.clear();
+                countryField.clear();
+                ratesField.clear();
             }
         });
     }

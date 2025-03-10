@@ -20,6 +20,7 @@ public class Currency{
     }
 
     public Currency(String code, String name, double rates) {
+        this.code = code;
         this.name = name;
         this.rates = rates;
     }
@@ -51,8 +52,6 @@ public class Currency{
     public void setRates(double rates) {
         this.rates = rates;
     }
-
-
 
     public double getRates() {
         return rates;

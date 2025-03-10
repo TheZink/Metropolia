@@ -10,16 +10,24 @@ public class CurrencyDao {
     // Metodi lisää valuutan tietokantaan
     public void persist(Currency currency) {
         EntityManager em = datasource.DbJpaConnection.getInstance();
-        em.getTransaction().begin();
-        em.persist(currency);
-        em.getTransaction().commit();
+        try {
+            em.getTransaction().begin();
+            em.persist(currency);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw e;    
+        }
     }
 
     // Metodi hakee valuutan tietokannasta
-    public Currency find(String name) {
+    public Currency find(String code) {
         EntityManager em = datasource.DbJpaConnection.getInstance();
-        Currency currency = em.find(Currency.class, name);
-        return currency;
+        return em.createQuery("SELECT c FROM Currency c WHERE c.code = :code", Currency.class)
+        .setParameter("code", code)
+        .getSingleResult();
     }
 
     // Metodi hakee kaikki valuutat tietokannasta

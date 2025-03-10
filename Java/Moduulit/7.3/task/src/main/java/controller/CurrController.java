@@ -8,10 +8,10 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 import application.*;
+import entity.*;
 
 public class CurrController {
     private ConverterApp converter;
-    public boolean dbStatus;
 
     @FXML
     private ComboBox<String> fromCurrList;
@@ -22,17 +22,19 @@ public class CurrController {
     @FXML
     private TextField resultField;
     @FXML
-    private Label selLabel;
+    private Label selText;
     @FXML
-    private Label countryLabel;
+    private Label nameText;
     @FXML
-    private Label nameLabel;
+    private Label ratesText;
     @FXML
     private Button convertButton;
     @FXML
     private Button addButton;
     @FXML
     private Button clearButton;
+    @FXML
+    private Button refreshButton;
 
     @FXML
     private void initialize() {
@@ -48,7 +50,7 @@ public class CurrController {
                 System.out.println("Add button pressed");
 
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Currency_view2.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Currency_view_2.fxml"));
                     Stage dialogStage = new Stage();
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
@@ -59,12 +61,26 @@ public class CurrController {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    System.out.println("Error: " + e.getMessage());
                 }
-
-
             }
         });
 
+        // Päivitetään valuuttalista
+        refreshButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event){
+                System.out.println("Refresh button pressed");
+
+                converter.getAllCurrency();
+                fromCurrList.getItems().clear();
+                toCurrList.getItems().clear();
+                fromCurrList.getItems().addAll(converter.getNames());
+                toCurrList.getItems().addAll(converter.getNames());
+            }
+            
+        });
+
+        // Muunnetaan valuutta
         convertButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event){
                 System.out.println("Convert button pressed");
@@ -76,9 +92,14 @@ public class CurrController {
                 double result = converter.convertCurrency(from, to, amount);
                 resultField.setText(String.format("%.2f", result));
 
+                Currency currency = converter.getCurrency(to);
+                selText.setText("Selected currency: " + currency.getCode());
+                nameText.setText("Name: " + currency.getName());
+                ratesText.setText("Rates: " + currency.getRates());
             }
         });
 
+        // Tyhjennetään kentät
         clearButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event){
 
@@ -89,9 +110,9 @@ public class CurrController {
                 amountField.setText("");
                 resultField.setText("");
 
-                selLabel.setText("");
-                countryLabel.setText("");
-                nameLabel.setText("");
+                selText.setText("");
+                nameText.setText("");
+                ratesText.setText("");
 
             }            
         });

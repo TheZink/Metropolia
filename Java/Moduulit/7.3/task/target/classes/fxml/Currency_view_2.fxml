@@ -33,7 +33,7 @@
             <VBox prefHeight="81.0" prefWidth="173.0">
                <children>
                   <TextField fx:id="currField" promptText="Currency code" />
-                  <TextField fx:id="countryField" promptText="Country" />
+                  <TextField fx:id="countryField" promptText="Currency name" />
                   <TextField fx:id="ratesField" prefHeight="25.0" prefWidth="180.0" promptText="Rates" />
                </children>
             </VBox>
@@ -51,7 +51,7 @@
       </GridPane>
    </right>
    <bottom>
-      <Text fx:id="statusLabel" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="185.13671875" BorderPane.alignment="BASELINE_RIGHT">
+      <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="185.13671875" BorderPane.alignment="BASELINE_RIGHT">
          <BorderPane.margin>
             <Insets left="150.0" />
          </BorderPane.margin>
