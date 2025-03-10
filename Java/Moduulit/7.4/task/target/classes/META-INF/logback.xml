@@ -1,0 +1,1 @@
+<configuration> <logger name="org.hibernate" level="INFO" /> </configuration>
