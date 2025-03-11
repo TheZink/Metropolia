@@ -1,13 +1,16 @@
 package task1.production;
 
 public class Pen {
-    private Color color;
-    private boolean cap = true;
-
     public enum Color {
-        RED, GREEN, BLUE
+        RED("red"), GREEN("green"), BLUE("blue");
+        private final String color;
+        Color(String color) { this.color = color; };
+        @Override public String toString() { return color; }
     }
 
+    private Color color = Color.RED;
+    private boolean cap = true;
+    
     public Pen(){}
 
     public Pen(Pen.Color color) {
@@ -20,9 +23,9 @@ public class Pen {
 
     public String draw() {
         if (cap) {
-            return " ";
+            return "";
         } else {
-            return "Drawing " + color.toString().toLowerCase();
+            return "Drawing " + color.toString();
         }
     }
 
@@ -33,9 +36,4 @@ public class Pen {
     public void capOn() {
         cap = true;
     }
-
-
-
-
-
 }
