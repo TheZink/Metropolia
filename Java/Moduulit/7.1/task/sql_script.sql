@@ -3,7 +3,7 @@ CREATE DATABASE CONVERTER;
 
 DROP USER IF EXISTS 'appuser'@'localhost';
 CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'appuser';
-GRANT SELECT, INSERT ON CONVERTER TO 'appuser';
+GRANT SELECT, INSERT, UPDATE, DELETE ON CONVERTER.* TO 'appuser'@'localhost' ;
 
 
 USE CONVERTER;
