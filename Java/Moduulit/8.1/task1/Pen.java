@@ -1,4 +1,4 @@
-package task1.production;
+package task1;
 
 public class Pen {
     public enum Color {
