@@ -48,7 +48,14 @@ public class CurrController {
         //DatabaseInitializer db = new DatabaseInitializer();
 
         //db.initialize();
-        converter.getAllCurrency();
+        try {
+            converter.getAllCurrency();
+        } catch (Exception e) {
+            e.printStackTrace();
+            selText.setText("Error: Problem with database");
+            System.out.println("Error: " + e.getMessage());
+        }
+
         fromCurrList.getItems().addAll(converter.getNames());
         toCurrList.getItems().addAll(converter.getNames());
 
@@ -69,6 +76,7 @@ public class CurrController {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    selText.setText("Error: " + e.getMessage());
                     System.out.println("Error: " + e.getMessage());
                 }
             }
@@ -93,20 +101,26 @@ public class CurrController {
             public void handle(ActionEvent event){
                 System.out.println("Convert button pressed");
 
-                String from = fromCurrList.getValue();
-                String to = toCurrList.getValue();
-                double amount = Double.parseDouble(amountField.getText());
+                if (fromCurrList.getValue() == null || toCurrList.getValue() == null || amountField.getText().isEmpty()) {
+                    System.out.println("Error: Empty field");
+                    selText.setText("Error: Please fill all fields");
+                    return;
+                } else {
+                    String from = fromCurrList.getValue();
+                    String to = toCurrList.getValue();
+                    double amount = Double.parseDouble(amountField.getText());
 
-                double result = converter.convertCurrency(from, to, amount);
-                resultField.setText(String.format("%.2f", result));
-        
-                // Tallenetaan tapahtuma tietokantaan
-                transaction.setTransaction(date.toString(),from, to, amount, result);
+                    double result = converter.convertCurrency(from, to, amount);
+                    resultField.setText(String.format("%.2f", result));
+            
+                    // Tallenetaan tapahtuma tietokantaan
+                    transaction.setTransaction(date.toString(),from, to, amount, result);
 
-                Currency currency = converter.getCurrency(to);
-                selText.setText("Selected currency: " + currency.getCode());
-                nameText.setText("Name: " + currency.getName());
-                ratesText.setText("Rates: " + currency.getRates());
+                    Currency currency = converter.getCurrency(to);
+                    selText.setText("Selected currency: " + currency.getCode());
+                    nameText.setText("Name: " + currency.getName());
+                    ratesText.setText("Rates: " + currency.getRates());
+                }
             }
         });
 
