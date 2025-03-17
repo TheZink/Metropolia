@@ -25,9 +25,7 @@ public class Person {
     
     public static void main(String[] args) {
         ArrayList<Person> people = new ArrayList<>();
-        ArrayList<Person> people2 = new ArrayList<>();
         
-
         people.add(new Person("Ilkka", 33, "Helsinki"));
         people.add(new Person("Jukka", 66, "Helsinki"));
         people.add(new Person("Mikko", 55, "Vantaa"));
