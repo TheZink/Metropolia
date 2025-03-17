@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  color: #ff0000;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff00ee;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    background-color: gray;
+    margin: 0 auto
+}
+
+ol, ul, dl {
+    padding: 0;
+    list-style-position: inside;
+}
