@@ -9,7 +9,6 @@ public class Filtering {
 
             System.out.println(filtered);
             System.out.println(sum);
-
         }
 
 }
